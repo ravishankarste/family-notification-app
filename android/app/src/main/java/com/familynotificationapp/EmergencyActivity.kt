@@ -38,7 +38,7 @@ class EmergencyActivity : Activity() {
             setBackgroundColor(Color.RED)
         }
 
-        val text = TextView(this).apply {
+        val alertText = TextView(this).apply {
             text = "EMERGENCY ALERT"
             textSize = 32f
             setTextColor(Color.WHITE)
@@ -62,7 +62,7 @@ class EmergencyActivity : Activity() {
             }
         }
 
-        layout.addView(text)
+        layout.addView(alertText)
         layout.addView(stopButton)
 
         setContentView(layout)

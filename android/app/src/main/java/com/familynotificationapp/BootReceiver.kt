@@ -17,7 +17,7 @@ class BootReceiver : BroadcastReceiver() {
             val pending = repo.getPending()
             if (pending.isNotEmpty()) {
                 val serviceIntent = Intent(context, EmergencyService::class.java)
-                serviceIntent.putExtra("message_id", pending.first().messageId)
+                serviceIntent.putExtra("message_id", pending.first()["messageId"])
                 
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                     context.startForegroundService(serviceIntent)
