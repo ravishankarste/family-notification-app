@@ -29,12 +29,18 @@ class WatchdogModule(private val reactContext: ReactApplicationContext) : ReactC
 
     @ReactMethod
     fun queueEmergencyEvent(payload: String) {
-        val queue = EmergencyQueue(reactContext)
-        queue.add("WS_EMERGENCY", payload)
+        val messageId = "WS_" + System.currentTimeMillis()
+        val repo = EmergencyRepository(reactContext)
+        repo.insertPending(messageId, payload)
         
         val serviceIntent = Intent(reactContext, EmergencyService::class.java)
-        serviceIntent.putExtra("action", "EMERGENCY")
-        reactContext.startForegroundService(serviceIntent)
+        serviceIntent.putExtra("message_id", messageId)
+        
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            reactContext.startForegroundService(serviceIntent)
+        } else {
+            reactContext.startService(serviceIntent)
+        }
     }
 
     @ReactMethod
