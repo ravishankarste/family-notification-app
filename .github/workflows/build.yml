@@ -30,13 +30,10 @@ jobs:
       - name: 📦 Install dependencies
         run: npm ci
 
-      - name: 🛠️ Setup EAS CLI
-        run: npm install -g eas-cli
-
-      - name: 🏗️ Build APK (Bypassing Expo Cloud Limits)
-        run: eas build -p android --profile preview --local --non-interactive
+      - name: 🏗️ Build APK (Direct Gradle)
+        working-directory: android
+        run: ./gradlew assembleDebug
         env:
-          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
           EXPO_PUBLIC_SUPABASE_URL: ${{ secrets.EXPO_PUBLIC_SUPABASE_URL }}
           EXPO_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.EXPO_PUBLIC_SUPABASE_ANON_KEY }}
 
@@ -44,5 +41,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: FamilyApp-Preview
-          path: build/*.apk
+          path: android/app/build/outputs/apk/debug/*.apk
           retention-days: 7
