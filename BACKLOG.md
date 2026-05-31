@@ -1,0 +1,1 @@
+- [ ] Set up EAS Update (Over-The-Air updates) so we don't have to build APKs for UI changes

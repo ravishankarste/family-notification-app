@@ -7,7 +7,6 @@ node_modules/
 .expo/
 dist/
 web-build/
-expo-env.d.ts
 
 # Native
 .kotlin/
@@ -37,5 +36,8 @@ yarn-error.*
 *.tsbuildinfo
 
 # generated native folders
+
+# Secrets
+.env
+google-services.json
 /ios
-/android

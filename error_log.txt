@@ -1,0 +1,23 @@
+Starting project at /Users/ravishankar/ravi-app-studio/family-notification-app
+/Users/ravishankar/ravi-app-studio/family-notification-app/node_modules/expo/node_modules/@expo/cli/build/src/utils/errors.js:130
+    throw error;
+    ^
+
+Error: EPERM: operation not permitted, open '/Users/ravishankar/.expo/state.json.FTFIDh7a35Uw2TquhUw0LE0ardrxneIpmENR22xm8-E'
+    at Object.openSync (node:fs:562:18)
+    at Object.writeFileSync (node:fs:2440:35)
+    at writeFileAtomicSync (/Users/ravishankar/ravi-app-studio/family-notification-app/node_modules/@expo/json-file/build/writeAtomic.js:46:8)
+    at write (/Users/ravishankar/ravi-app-studio/family-notification-app/node_modules/@expo/json-file/build/JsonFile.js:246:43)
+    at setSync (/Users/ravishankar/ravi-app-studio/family-notification-app/node_modules/@expo/json-file/build/JsonFile.js:276:12)
+    at JsonFile.set (/Users/ravishankar/ravi-app-studio/family-notification-app/node_modules/@expo/json-file/build/JsonFile.js:108:16)
+    at getAnonymousId (/Users/ravishankar/ravi-app-studio/family-notification-app/node_modules/expo/node_modules/@expo/cli/build/src/api/user/UserSettings.js:191:18)
+    at new Telemetry (/Users/ravishankar/ravi-app-studio/family-notification-app/node_modules/expo/node_modules/@expo/cli/build/src/utils/telemetry/Telemetry.js:30:66)
+    at getTelemetry (/Users/ravishankar/ravi-app-studio/family-notification-app/node_modules/expo/node_modules/@expo/cli/build/src/utils/telemetry/index.js:43:21)
+    at recordCommand (/Users/ravishankar/ravi-app-studio/family-notification-app/node_modules/expo/node_modules/@expo/cli/build/src/utils/telemetry/index.js:64:26) {
+  errno: -1,
+  code: 'EPERM',
+  syscall: 'open',
+  path: '/Users/ravishankar/.expo/state.json.FTFIDh7a35Uw2TquhUw0LE0ardrxneIpmENR22xm8-E'
+}
+
+Node.js v22.16.0

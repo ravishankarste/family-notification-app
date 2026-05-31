@@ -7,7 +7,8 @@
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.family.notificationapp"
     },
     "android": {
       "adaptiveIcon": {
@@ -16,10 +17,35 @@
         "backgroundImage": "./assets/android-icon-background.png",
         "monochromeImage": "./assets/android-icon-monochrome.png"
       },
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "package": "com.family.notificationapp",
+      "permissions": [
+        "android.permission.FOREGROUND_SERVICE",
+        "android.permission.FOREGROUND_SERVICE_SPECIAL_USE",
+        "android.permission.SCHEDULE_EXACT_ALARM",
+        "android.permission.ACCESS_NOTIFICATION_POLICY",
+        "android.permission.SYSTEM_ALERT_WINDOW",
+        "android.permission.WAKE_LOCK"
+      ],
+      "googleServicesFile": "./google-services.json"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "@react-native-firebase/app",
+      "@react-native-firebase/crashlytics"
+    ],
+    "updates": {
+      "url": "https://u.expo.dev/031b9250-b351-4b49-9da4-f3a8aff0a007"
+    },
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "031b9250-b351-4b49-9da4-f3a8aff0a007"
+      }
     }
   }
 }

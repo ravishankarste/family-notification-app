@@ -1,0 +1,62 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+  <uses-permission android:name="android.permission.INTERNET"/>
+  <!-- OPTIONAL PERMISSIONS, REMOVE WHATEVER YOU DO NOT NEED -->
+  <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+  <uses-permission android:name="android.permission.VIBRATE"/>
+  <!-- These require runtime permissions on M -->
+  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+  
+  <!-- Watchdog Required Permissions -->
+  <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+  <uses-permission android:name="android.permission.WAKE_LOCK"/>
+  <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+  <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY"/>
+  <!-- END OPTIONAL PERMISSIONS -->
+
+  <queries>
+    <!-- Support checking for http(s) links via the Linking API -->
+    <intent>
+      <action android:name="android.intent.action.VIEW" />
+      <category android:name="android.intent.category.BROWSABLE" />
+      <data android:scheme="https" />
+    </intent>
+  </queries>
+
+  <application android:name=".MainApplication" android:label="@string/app_name" android:icon="@mipmap/ic_launcher" android:roundIcon="@mipmap/ic_launcher_round" android:allowBackup="false" android:theme="@style/AppTheme" android:supportsRtl="true">
+    <activity android:name=".MainActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|uiMode" android:launchMode="singleTask" android:windowSoftInputMode="adjustResize" android:theme="@style/Theme.App.SplashScreen" android:exported="true">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN"/>
+        <category android:name="android.intent.category.LAUNCHER"/>
+      </intent-filter>
+    </activity>
+
+    <!-- Native Watchdog Layer -->
+    <service android:name=".WatchdogService" android:exported="false" />
+    
+    <!-- Native Guaranteed Delivery Emergency Layer -->
+    <service android:name=".EmergencyService" android:exported="false" />
+    <activity android:name=".EmergencyActivity" android:exported="false" android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+    
+    <receiver android:name=".FCMReceiver" android:exported="false" />
+    <service android:name=".FCMService" android:exported="true">
+        <intent-filter>
+            <action android:name="com.google.firebase.MESSAGING_EVENT" />
+        </intent-filter>
+    </service>
+    
+    <receiver android:name=".BootReceiver" android:exported="true">
+      <intent-filter>
+        <action android:name="android.intent.action.BOOT_COMPLETED"/>
+        <action android:name="android.intent.action.QUICKBOOT_POWERON"/>
+      </intent-filter>
+    </receiver>
+    
+    <receiver android:name=".UserPresentReceiver" android:exported="true">
+      <intent-filter>
+        <action android:name="android.intent.action.USER_PRESENT"/>
+      </intent-filter>
+    </receiver>
+  </application>
+</manifest>
