@@ -39,7 +39,6 @@
     <service android:name=".EmergencyService" android:exported="false" />
     <activity android:name=".EmergencyActivity" android:exported="false" android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
     
-    <receiver android:name=".FCMReceiver" android:exported="false" />
     <service android:name=".FCMService" android:exported="true">
         <intent-filter>
             <action android:name="com.google.firebase.MESSAGING_EVENT" />

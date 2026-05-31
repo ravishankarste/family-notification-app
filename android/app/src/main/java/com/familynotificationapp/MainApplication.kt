@@ -43,7 +43,7 @@ class MainApplication : Application(), ReactApplication {
     
     // Trigger Sync Recovery on App Start (MIUI process restart handling)
     val syncManager = SyncRecoveryManager(applicationContext)
-    syncManager.syncToServer { true }
+    syncManager.sync()
     DefaultNewArchitectureEntryPoint.releaseLevel = try {
       ReleaseLevel.valueOf(BuildConfig.REACT_NATIVE_RELEASE_LEVEL.uppercase())
     } catch (e: IllegalArgumentException) {

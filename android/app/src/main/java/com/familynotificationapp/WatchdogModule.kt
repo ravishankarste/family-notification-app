@@ -46,6 +46,6 @@ class WatchdogModule(private val reactContext: ReactApplicationContext) : ReactC
     @ReactMethod
     fun triggerSyncRecovery() {
         val syncManager = SyncRecoveryManager(reactContext)
-        syncManager.syncToServer { true }
+        syncManager.sync()
     }
 }
