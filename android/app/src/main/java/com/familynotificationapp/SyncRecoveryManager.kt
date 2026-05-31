@@ -10,11 +10,14 @@ class SyncRecoveryManager(private val context: Context) {
         val pending = repo.getPending()
 
         for (event in pending) {
-            if (event.status == "DELIVERED") {
-                EmergencyApi.ackDelivered(event.messageId)
+            val status = event["status"]
+            val messageId = event["messageId"]
+            
+            if (status == "DELIVERED" && messageId != null) {
+                EmergencyApi.ackDelivered(messageId)
             }
             
-            if (event.status == "PENDING") {
+            if (status == "PENDING") {
                 // Was received by FCM but EmergencyService failed to start or update it.
                 // It will likely be picked up or restarted, but we can attempt to send DELIVERED just in case.
             }
