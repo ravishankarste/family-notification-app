@@ -16,12 +16,6 @@ import RemoteLogger from './src/dev/Logger'; // Local fallback handles remote fo
 // Core System
 import { AutoHeal } from './src/system/AutoHeal';
 
-// Initialize the native foreground service (only on native platforms)
-import { Platform } from 'react-native';
-if (Platform.OS !== 'web') {
-  require('./src/lib/ForegroundService');
-}
-
 import * as Notifications from 'expo-notifications';
 
 Notifications.setNotificationHandler({
