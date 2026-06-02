@@ -10,9 +10,12 @@
   
   <!-- Watchdog Required Permissions -->
   <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+  <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC"/>
   <uses-permission android:name="android.permission.WAKE_LOCK"/>
   <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
   <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY"/>
+  <!-- MIUI-specific: tells MIUI this app needs to autostart on boot -->
+  <uses-permission android:name="android.permission.START_ACTIVITIES_FROM_BACKGROUND"/>
   <!-- END OPTIONAL PERMISSIONS -->
 
   <queries>
