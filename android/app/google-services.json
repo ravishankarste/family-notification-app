@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "369612407687",
+    "project_id": "family-notif-app",
+    "storage_bucket": "family-notif-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:369612407687:android:00cd14eeeed7a74cd80922",
+        "android_client_info": {
+          "package_name": "com.family.notificationapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBj_zxk4zTBOtF99kMLjc1v8J3q-xmWlCE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
