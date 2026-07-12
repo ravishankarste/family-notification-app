@@ -37,7 +37,10 @@ class ConnectionManagerService {
         // Native or server replied to our ping
         this.lastMsgTime = Date.now();
       })
-      .subscribe((status: string) => {
+      .subscribe((status: string, err?: Error) => {
+        if (err) {
+          LocalLogger.log('WS_SUBSCRIBE_ERR', { message: err.message });
+        }
         if (status === 'SUBSCRIBED') {
           this.state = 'CONNECTED';
           LocalLogger.log('WS_CONNECTED');
