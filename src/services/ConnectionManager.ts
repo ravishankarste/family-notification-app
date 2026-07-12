@@ -21,7 +21,7 @@ class ConnectionManagerService {
     this.channel = supabase.channel('emergency-monitor');
 
     this.channel
-      .on('postgres_changes', { event: '*', schema: 'public', table: 'messages' }, (payload: any) => {
+      .on('postgres_changes', { event: '*', schema: 'public', table: 'family_app_messages' }, (payload: any) => {
         this.lastMsgTime = Date.now();
         const newMessage = payload.new as any;
         
